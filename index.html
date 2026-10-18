@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diego García-Prieto</title>
 <meta name="description" content="Computer scientist and PhD candidate at the University of Cantabria. Human-Guided Machine Learning and Human-Centered AI.">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-<div class="bg" aria-hidden="true"><i></i><i></i></div>
+<div class="progress" aria-hidden="true"></div>
+<div class="bg" aria-hidden="true"><canvas id="net"></canvas><i></i><i></i></div>
 <nav class="side" aria-label="Sections">
-  <a class="who" href="#top">Diego García-Prieto</a>
+  <a class="who" href="#top">Diego<br>García-Prieto</a>
   <ul>
     <li><a href="#top">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -29,7 +30,7 @@
 <main>
   <section id="top" class="hero wrap">
     <h1><span class="grad">Diego García-Prieto</span></h1>
-    <p class="lead">I teach machines to listen to people.</p>
+    <p class="lead">I teach machines to listen to <span class="rot" data-words="people|clinicians|researchers|students">people</span><span class="caret" aria-hidden="true"></span>.</p>
     <p class="sub">Computer scientist and PhD candidate at the <strong>University of Cantabria</strong>, where I research <strong>Human-Guided Machine Learning</strong> and <strong>Human-Centered AI</strong>.</p>
     <p class="links">
       <a class="btn primary" href="https://www.linkedin.com/in/diego-garcia-p/">LinkedIn</a>
@@ -177,6 +178,81 @@
       document.documentElement.style.setProperty('--my', e.clientY + 'px');
     }, { passive: true });
   }
+})();
+</script>
+<script>
+(function () {
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
+
+  /* Scroll progress bar */
+  var bar = document.querySelector('.progress');
+  function prog() {
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
+  }
+  addEventListener('scroll', prog, { passive: true }); prog();
+
+  /* Typewriter in the hero */
+  var rot = document.querySelector('.rot');
+  if (rot && !rm) {
+    var words = rot.dataset.words.split('|'), wi = 0, ci = words[0].length, del = true;
+    (function tick() {
+      var w = words[wi], delay = 90;
+      if (del) { ci--; if (ci <= 0) { del = false; wi = (wi + 1) % words.length; } delay = 50; }
+      else { ci++; if (ci >= words[wi].length) { del = true; delay = 1700; } }
+      rot.textContent = words[wi].slice(0, Math.max(ci, 0));
+      setTimeout(tick, delay);
+    })();
+  }
+
+  /* Card tilt */
+  if (!rm) document.querySelectorAll('.card').forEach(function (c) {
+    c.addEventListener('pointermove', function (e) {
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.transform = 'perspective(800px) rotateX(' + (-y * 5) + 'deg) rotateY(' + (x * 6) + 'deg) translateY(-4px)';
+    });
+    c.addEventListener('pointerleave', function () { c.style.transform = ''; });
+  });
+
+  /* Particle network */
+  var cv = document.getElementById('net');
+  if (!cv || rm) return;
+  var ctx = cv.getContext('2d'), W, H, pts = [], mouse = { x: -999, y: -999 }, run = true;
+  function size() {
+    var d = devicePixelRatio || 1; W = innerWidth; H = innerHeight;
+    cv.width = W * d; cv.height = H * d; cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(d, 0, 0, d, 0, 0);
+    var n = Math.min(70, Math.round(W * H / 20000));
+    pts = []; for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 });
+  }
+  addEventListener('resize', size); size();
+  addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+  document.addEventListener('visibilitychange', function () { run = !document.hidden; if (run) frame(); });
+  function frame() {
+    if (!run) return;
+    ctx.clearRect(0, 0, W, H);
+    var c1 = css('--a1'), c2 = css('--a2');
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      var dx = p.x - mouse.x, dy = p.y - mouse.y, dm = Math.sqrt(dx * dx + dy * dy);
+      if (dm < 140) { p.x += dx / dm * .6; p.y += dy / dm * .6; }
+      for (var j = i + 1; j < pts.length; j++) {
+        var q = pts[j], ax = p.x - q.x, ay = p.y - q.y, d = Math.sqrt(ax * ax + ay * ay);
+        if (d < 130) {
+          ctx.globalAlpha = (1 - d / 130) * .22;
+          ctx.strokeStyle = (dm < 200 || Math.hypot(q.x - mouse.x, q.y - mouse.y) < 200) ? c2 : c1;
+          ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+      ctx.globalAlpha = .5; ctx.fillStyle = c1; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, 6.283); ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
 })();
 </script>
 </body>

@@ -173,3 +173,23 @@ footer { padding: 24px 16px 56px; color: var(--muted); font-size: 14px; text-ali
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* v3 additions */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 30; transform: scaleX(0); transform-origin: 0 50%; background: linear-gradient(90deg, var(--a1), var(--a2)); }
+#net { position: absolute; inset: 0; }
+.caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: -.15em; background: var(--a2); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.rot { color: var(--a2); font-style: italic; }
+.wrap { max-width: 860px; }
+.side .who { line-height: 1.25; }
+.card { transform-style: preserve-3d; will-change: transform; }
+.list li > a:first-child { color: var(--fg); font-weight: 600; text-decoration: none; background: linear-gradient(var(--a2), var(--a2)) 0 100% / 0 2px no-repeat; transition: background-size .3s, color .2s; }
+.list li:hover > a:first-child { color: var(--a1); background-size: 100% 2px; }
+.reveal .card, .reveal .list li, .reveal .timeline li, .reveal .chips li { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in .card, .reveal.in .list li, .reveal.in .timeline li, .reveal.in .chips li { opacity: 1; transform: none; }
+.reveal.in > * > :nth-child(2), .reveal.in li:nth-child(2) { transition-delay: .08s; }
+.reveal.in li:nth-child(3) { transition-delay: .16s; }
+.reveal.in li:nth-child(4) { transition-delay: .24s; }
+.reveal.in li:nth-child(5) { transition-delay: .32s; }
+.reveal.in li:nth-child(6) { transition-delay: .4s; }
+.reveal.in li:nth-child(n+7) { transition-delay: .48s; }
