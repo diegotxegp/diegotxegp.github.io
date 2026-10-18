@@ -8,8 +8,24 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav class="side" aria-label="Sections">
+  <a class="who" href="#top">Diego García-Prieto</a>
+  <ul>
+    <li><a href="#top">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#currently">Currently</a></li>
+    <li><a href="#papers">Talks &amp; papers</a></li>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#other">Other projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 <main>
-  <section class="hero wrap">
+  <section id="top" class="hero wrap">
     <h1>Diego García-Prieto</h1>
     <p class="lead">I teach machines to listen to people.</p>
     <p class="sub">Computer scientist and PhD candidate at the <strong>University of Cantabria</strong>, where I research <strong>Human-Guided Machine Learning</strong> and <strong>Human-Centered AI</strong>.</p>
@@ -21,13 +37,13 @@
     </p>
   </section>
 
-  <section class="wrap">
+  <section id="about" class="wrap">
     <h2>About</h2>
     <p>I'm interested in making machine learning understandable and usable for people without programming or AI expertise, especially in clinical research. My work combines AutoML, human-computer interaction and data science, and I like building tools as much as writing about them.</p>
     <p>My path to AI was not a straight line: satellite image recognition, malware analysis in industry, natural language processing, predictable real-time systems for Industry 4.0 and a digital twin of the European coast. Python is my main language, along with C, Matlab and Java.</p>
   </section>
 
-  <section class="wrap">
+  <section id="currently" class="wrap">
     <h2>Currently</h2>
     <article class="card">
       <span class="badge">PhD project</span>
@@ -45,7 +61,7 @@
     <p>I also teach mathematics for the Primary Education degree at the University of Cantabria.</p>
   </section>
 
-  <section class="wrap">
+  <section id="papers" class="wrap">
     <h2>Talks &amp; papers</h2>
     <p class="hint">Full list on <a href="https://scholar.google.com/citations?user=WtrgTHkAAAAJ&hl=en">Google Scholar</a> and <a href="https://orcid.org/0000-0002-7461-2961">ORCID</a>.</p>
     <ul class="list">
@@ -60,7 +76,7 @@
     <p class="hint">Teaching and outreach: <a href="https://github.com/diegotxegp/presentacion-datos-clinicos-y-modelizacion-descriptiva">Clinical data and descriptive modelling</a> (summer course on AI in clinical studies, University of Cantabria).</p>
   </section>
 
-  <section class="wrap">
+  <section id="background" class="wrap">
     <h2>Background</h2>
     <ol class="timeline">
       <li><b>2014</b><div>Intern at <strong>IFCA-CSIC</strong>: an Android app for image recognition in the context of ESA's Copernicus programme.</div></li>
@@ -72,7 +88,7 @@
     </ol>
   </section>
 
-  <section class="wrap">
+  <section id="projects" class="wrap">
     <h2>Funded research projects</h2>
     <ul class="list">
       <li>Human-guided automated machine learning for clinical studies <span>University of Cantabria, 2024–2028 · PI: Rafael Duque Medina</span></li>
@@ -84,7 +100,7 @@
     </ul>
   </section>
 
-  <section class="wrap">
+  <section id="education" class="wrap">
     <h2>Education</h2>
     <ul class="list">
       <li>Master's in Secondary Education Teacher Training <span>University of Cantabria, 2025</span></li>
@@ -94,7 +110,7 @@
     <p class="hint">English B2. I also completed Stanford's Machine Learning course on Coursera, and I have helped organise WMC 2016, AEiC 2021 and RECSI 2022.</p>
   </section>
 
-  <section class="wrap">
+  <section id="interests" class="wrap">
     <h2>Interests</h2>
     <ul class="chips">
       <li>AutoML</li><li>Human-Centered AI</li><li>Human-Computer Interaction</li>
@@ -103,7 +119,7 @@
     </ul>
   </section>
 
-  <section class="wrap">
+  <section id="other" class="wrap">
     <h2>Other projects</h2>
     <p class="hint">Small tools from earlier work.</p>
     <ul class="list">
@@ -114,7 +130,7 @@
     </ul>
   </section>
 
-  <section class="wrap contact">
+  <section id="contact" class="wrap contact">
     <h2>Contact</h2>
     <p>Email me (university address) or find me on LinkedIn.</p>
     <p class="links">
@@ -127,5 +143,23 @@
 </main>
 
 <footer class="wrap"><p>© Diego García-Prieto · University of Cantabria</p></footer>
+<script>
+(function () {
+  var links = document.querySelectorAll('.side li a');
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  var secs = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  function mark() {
+    var cur = secs[0], y = window.scrollY + window.innerHeight * 0.3;
+    secs.forEach(function (el) { if (el.offsetTop <= y) cur = el; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = secs[secs.length - 1];
+    links.forEach(function (a) { a.classList.remove('on'); });
+    if (cur) map[cur.id].classList.add('on');
+  }
+  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark);
+  mark();
+})();
+</script>
 </body>
 </html>
