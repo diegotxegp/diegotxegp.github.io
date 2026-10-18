@@ -68,6 +68,8 @@ h3 a { text-decoration: none; }
   border-radius: 999px; padding: 8px 20px; font-weight: 700; font-size: 16px;
   transition: transform .15s, border-color .15s;
 }
+button.btn { font-family: inherit; cursor: pointer; color: var(--fg); }
+.btn.primary { color: #fff; }
 .btn:hover { transform: translateY(-3px) rotate(-1.5deg); border-color: var(--cyan); }
 .btn.primary { background: linear-gradient(90deg, var(--pink), var(--violet)); border-color: transparent; color: #fff; }
 
