@@ -83,16 +83,3 @@
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
   resize();
 })();
-
-(() => {
-  const b = document.getElementById('mail');
-  if (!b) return;
-  b.addEventListener('click', () => {
-    const addr = atob(b.dataset.e).split('').reverse().join('');
-    const a = document.createElement('a');
-    a.className = 'btn primary';
-    a.href = 'mailto:' + addr;
-    a.textContent = addr;
-    b.replaceWith(a);
-  });
-})();
