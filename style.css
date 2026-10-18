@@ -1,0 +1,125 @@
+:root {
+  --bg: #0e0b1a;
+  --fg: #f2effa;
+  --muted: #a49fbd;
+  --card: #1a1530;
+  --border: #302a4d;
+  --pink: #ff5d9e;
+  --cyan: #2ee6d6;
+  --yellow: #ffd166;
+  --violet: #8b5cf6;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #fbf9ff;
+    --fg: #1d1633;
+    --muted: #5e5878;
+    --card: #ffffff;
+    --border: #e1daf5;
+    --pink: #e6277a;
+    --cyan: #0aa89b;
+    --yellow: #c78a00;
+    --violet: #6d3fe0;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 18px/1.65 "Trebuchet MS", system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+.wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+a { color: var(--cyan); }
+section { margin-bottom: 64px; }
+h1 { font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1.1; margin: 8px 0 16px; letter-spacing: -0.03em; }
+h2 { font-size: 1.5rem; margin: 0 0 12px; }
+h3 { margin: 8px 0; font-size: 1.4rem; }
+h3 a { text-decoration: none; }
+.grad {
+  background: linear-gradient(90deg, var(--pink), var(--yellow), var(--cyan), var(--pink));
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: slide 8s linear infinite;
+}
+@keyframes slide { to { background-position: 300% 0; } }
+
+.blobs { position: fixed; inset: 0; z-index: -1; overflow: hidden; }
+.blobs i { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .35; animation: float 18s ease-in-out infinite; }
+.blobs i:nth-child(1) { width: 360px; height: 360px; background: var(--pink); top: -80px; left: -80px; }
+.blobs i:nth-child(2) { width: 320px; height: 320px; background: var(--violet); top: 40%; right: -100px; animation-delay: -6s; }
+.blobs i:nth-child(3) { width: 300px; height: 300px; background: var(--cyan); bottom: -100px; left: 20%; animation-delay: -12s; }
+@keyframes float { 50% { transform: translate(40px, -50px) scale(1.15); } }
+
+.hero { padding-top: 72px; }
+.wave { font-size: 3rem; margin: 0; display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out infinite; }
+@keyframes wave { 0%,60%,100% { transform: rotate(0); } 10%,30% { transform: rotate(16deg); } 20%,40% { transform: rotate(-10deg); } 50% { transform: rotate(8deg); } }
+.lead { font-size: 1.5rem; font-weight: 700; margin: 0 0 12px; }
+.sub { color: var(--muted); }
+.sub strong { color: var(--fg); }
+
+.links { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.btn {
+  display: inline-block; text-decoration: none; color: var(--fg);
+  border: 2px solid var(--border); background: var(--card);
+  border-radius: 999px; padding: 8px 20px; font-weight: 700; font-size: 16px;
+  transition: transform .15s, border-color .15s;
+}
+.btn:hover { transform: translateY(-3px) rotate(-1.5deg); border-color: var(--cyan); }
+.btn.primary { background: linear-gradient(90deg, var(--pink), var(--violet)); border-color: transparent; color: #fff; }
+
+.hint, .muted, .status { color: var(--muted); font-size: 16px; }
+.lab { background: var(--card); border: 2px solid var(--border); border-radius: 18px; padding: 14px; }
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.tool {
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+  color: var(--fg); background: transparent;
+  border: 2px solid var(--c, var(--border)); border-radius: 999px; padding: 6px 16px;
+}
+.tool.active { background: var(--c); color: #120d22; }
+.tool.ghost { --c: var(--border); }
+.tool.ghost:hover { border-color: var(--yellow); }
+canvas { width: 100%; height: 340px; display: block; border-radius: 12px; cursor: crosshair; touch-action: manipulation; background: var(--bg); }
+.status { margin: 10px 2px 0; min-height: 1.6em; }
+
+.card { position: relative; background: var(--card); border: 2px solid var(--border); border-radius: 18px; padding: 20px 24px; margin-bottom: 16px; transition: transform .2s, border-color .2s; }
+.card:hover { transform: translateY(-4px) rotate(-.4deg); border-color: var(--pink); }
+.badge { display: inline-block; background: var(--yellow); color: #231a00; font-size: 13px; font-weight: 800; border-radius: 999px; padding: 2px 12px; }
+.tags { display: flex; gap: 8px; flex-wrap: wrap; padding: 0; margin: 12px 0 0; }
+.tags span { font-size: 13px; color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 1px 8px; }
+
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0 0 16px; }
+.chips li {
+  background: var(--card); border: 2px solid var(--border); border-radius: 999px;
+  padding: 6px 16px; font-weight: 700; font-size: 16px; transition: transform .15s;
+}
+.chips li:nth-child(4n+1):hover { border-color: var(--pink); transform: scale(1.1) rotate(-3deg); }
+.chips li:nth-child(4n+2):hover { border-color: var(--cyan); transform: scale(1.1) rotate(3deg); }
+.chips li:nth-child(4n+3):hover { border-color: var(--yellow); transform: scale(1.1) rotate(-2deg); }
+.chips li:nth-child(4n):hover   { border-color: var(--violet); transform: scale(1.1) rotate(2deg); }
+
+footer { padding-bottom: 40px; color: var(--muted); font-size: 14px; text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.badge.alt { background: var(--cyan); color: #04211e; }
+.more { margin: 12px 0 0; font-size: 15px; color: var(--muted); }
+.more a, .list a { color: var(--cyan); font-weight: 700; }
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { padding: 10px 0; border-bottom: 1px dashed var(--border); }
+.list li span { display: block; color: var(--muted); font-size: 15px; }
+.timeline { list-style: none; margin: 0; padding: 0 0 0 22px; border-left: 3px solid var(--violet); }
+.timeline li { position: relative; margin-bottom: 20px; padding-left: 12px; }
+.timeline li::before {
+  content: ""; position: absolute; left: -33px; top: 8px; width: 15px; height: 15px;
+  border-radius: 50%; background: var(--pink); border: 3px solid var(--bg);
+}
+.timeline li:nth-child(even)::before { background: var(--cyan); }
+.timeline li b { color: var(--yellow); font-size: 15px; letter-spacing: .04em; }
+.timeline li div { margin-top: 2px; }
+.timeline li em { color: var(--fg); }
