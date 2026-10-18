@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="bg" aria-hidden="true"><i></i><i></i></div>
 <nav class="side" aria-label="Sections">
   <a class="who" href="#top">Diego García-Prieto</a>
   <ul>
@@ -24,9 +25,10 @@
   </ul>
 </nav>
 
+<div class="page">
 <main>
   <section id="top" class="hero wrap">
-    <h1>Diego García-Prieto</h1>
+    <h1><span class="grad">Diego García-Prieto</span></h1>
     <p class="lead">I teach machines to listen to people.</p>
     <p class="sub">Computer scientist and PhD candidate at the <strong>University of Cantabria</strong>, where I research <strong>Human-Guided Machine Learning</strong> and <strong>Human-Centered AI</strong>.</p>
     <p class="links">
@@ -143,6 +145,7 @@
 </main>
 
 <footer class="wrap"><p>© Diego García-Prieto · University of Cantabria</p></footer>
+</div>
 <script>
 (function () {
   var links = document.querySelectorAll('.side li a');
@@ -159,6 +162,21 @@
   window.addEventListener('scroll', mark, { passive: true });
   window.addEventListener('resize', mark);
   mark();
+
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var secs2 = document.querySelectorAll('main section:not(.hero)');
+  if ('IntersectionObserver' in window && !rm) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    secs2.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+  }
+  if (!rm) {
+    window.addEventListener('pointermove', function (e) {
+      document.documentElement.style.setProperty('--mx', e.clientX + 'px');
+      document.documentElement.style.setProperty('--my', e.clientY + 'px');
+    }, { passive: true });
+  }
 })();
 </script>
 </body>
