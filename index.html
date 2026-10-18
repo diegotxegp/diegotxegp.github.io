@@ -105,7 +105,7 @@
     <h2>Let's talk</h2>
     <p>Research, clinical AI, or just a good idea? Email me (university address) or find me on LinkedIn.</p>
     <p class="links">
-      <button class="btn primary" id="mail" type="button" data-e="c2UubmFjaW51QG90ZWlycGFpY3JhZy5vZ2VpZA==">✉️ Show email</button>
+      <button class="btn primary" id="mail" type="button" data-e="c2UubmFjaW51QG90ZWlycGFpY3JhZy5vZ2VpZA==" onclick="var a=document.createElement('a');a.className='btn primary';a.href='mailto:'+(a.textContent=atob(this.dataset.e).split('').reverse().join(''));this.replaceWith(a);">✉️ Show email</button>
       <a class="btn" href="https://www.linkedin.com/in/diego-garcia-p/">LinkedIn</a>
       <a class="btn" href="https://diegotxegp.wordpress.com">Blog</a>
     </p>
@@ -114,7 +114,6 @@
 </main>
 
 <footer class="wrap"><p>© Diego García-Prieto · University of Cantabria</p></footer>
-<script src="mail.js?v=2"></script>
 <script src="lab.js?v=2"></script>
 </body>
 </html>
