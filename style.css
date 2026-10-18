@@ -193,3 +193,20 @@ footer { padding: 24px 16px 56px; color: var(--muted); font-size: 14px; text-ali
 .reveal.in li:nth-child(5) { transition-delay: .32s; }
 .reveal.in li:nth-child(6) { transition-delay: .4s; }
 .reveal.in li:nth-child(n+7) { transition-delay: .48s; }
+
+/* Logo: PNG used as a mask so it follows the theme colours */
+.logo {
+  display: block; width: 64px; aspect-ratio: 600 / 360;
+  background: linear-gradient(90deg, var(--a1), var(--a2));
+  -webkit-mask: url(logo.png) center / contain no-repeat; mask: url(logo.png) center / contain no-repeat;
+}
+.logo.big { width: 92px; margin-bottom: 14px; animation: peek 6s ease-in-out infinite; transform-origin: 50% 70%; }
+@keyframes peek { 0%, 88%, 100% { transform: scaleY(1); } 92% { transform: scaleY(.15); } }
+.logo.small { width: 40px; margin: 0 auto 10px; opacity: .7; }
+.side .who .logo { width: 58px; margin-bottom: 12px; }
+@media (max-width: 899px) {
+  .side .who { display: flex; align-items: center; padding-right: 6px; }
+  .side .who .logo { width: 34px; margin: 0; }
+  .side .who { font-size: 0; }
+  .logo.big { width: 72px; }
+}
