@@ -2,263 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Diego García-Prieto</title>
-<meta name="description" content="Computer scientist and PhD candidate at the University of Cantabria. Human-Guided Machine Learning and Human-Centered AI.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diego García-Prieto · Human-guided machine learning</title>
+<meta name="description" content="Computer scientist and PhD candidate at the University of Cantabria, researching human-guided AutoML for clinical studies. Try a small AutoML experiment in your browser.">
+<meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0f1d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://diegotxegp.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diego García-Prieto · Human-guided machine learning">
+<meta property="og:description" content="PhD candidate researching human-guided AutoML for clinical studies. Try a small AutoML experiment in your browser.">
+<meta property="og:url" content="https://diegotxegp.github.io/">
+<meta property="og:image" content="https://diegotxegp.github.io/favicon-512.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
-<div class="progress" aria-hidden="true"></div>
-<div class="bg" aria-hidden="true"><canvas id="net"></canvas><i></i><i></i></div>
-<nav class="side" aria-label="Sections">
-  <a class="who" href="#top"><span class="mark" role="img" aria-label="Logo"><span class="logo"></span></span>Diego<br>García-Prieto</a>
-  <ul>
-    <li><a href="#top">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#currently">Currently</a></li>
-    <li><a href="#papers">Talks &amp; papers</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#interests">Interests</a></li>
-    <li><a href="#other">Other projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <a class="brand" href="#top" aria-label="Diego García-Prieto, back to top"><span class="mark" aria-hidden="true"><span class="logo"></span></span><span class="brand-name">Diego García-Prieto</span></a>
+  <nav aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#demo">Demo</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<div class="page">
-<main>
+<main id="main">
   <section id="top" class="hero wrap">
     <h1><span class="grad">Diego García-Prieto</span></h1>
-    <p class="lead">Teaching machines to listen to <span class="rot" data-words="people|clinicians|researchers|students">people</span><span class="caret" aria-hidden="true"></span>.</p>
-    <p class="sub">Computer scientist and PhD candidate at the <strong>University of Cantabria</strong>, where I research <strong>Human-Guided Machine Learning</strong> and <strong>Human-Centered AI</strong>.</p>
+    <p class="lead">Teaching machines to listen to people.</p>
+    <p class="sub">Computer scientist and PhD candidate at the <strong>University of Cantabria</strong>. I research <strong>human-guided machine learning</strong> and <strong>human-centered AI</strong>: making ML usable for people without programming or AI expertise, especially in clinical research.</p>
     <p class="links">
       <a class="btn primary" href="https://www.linkedin.com/in/diego-garcia-p/">LinkedIn</a>
-      <a class="btn" href="https://scholar.google.com/citations?user=WtrgTHkAAAAJ&hl=en">Google Scholar</a>
-      <a class="btn" href="https://orcid.org/0000-0002-7461-2961">ORCID</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=WtrgTHkAAAAJ&amp;hl=en">Google Scholar</a>
       <a class="btn" href="https://github.com/diegotxegp">GitHub</a>
     </p>
   </section>
 
-  <section id="about" class="wrap">
-    <h2>About</h2>
-    <p>I'm interested in making machine learning understandable and usable for people without programming or AI expertise, especially in clinical research. My work combines AutoML, human-computer interaction and data science, and I like building tools as much as writing about them.</p>
-    <p>My path to AI was not a straight line: satellite image recognition, malware analysis in industry, natural language processing, predictable real-time systems for Industry 4.0 and a digital twin of the European coast. Python is my main language, along with C, Matlab and Java.</p>
+  <section id="research" class="wrap">
+    <h2>My research</h2>
+    <div class="trio">
+      <div><h3>The problem</h3><p>Clinical researchers have data and questions, but building predictive models usually takes programming and AI skills they do not have.</p></div>
+      <div><h3>The idea</h3><p>Automate the technical work (AutoML) while keeping the researcher in control, in a no-code tool that respects the structure of clinical protocols, which generic AutoML tools ignore.</p></div>
+      <div><h3>The tool</h3><p><a href="https://github.com/diegotxegp/hamelin">Hamelin</a> is the desktop application at the core of my thesis, within a funded project at the University of Cantabria (2024–2028).</p></div>
+    </div>
   </section>
 
-  <section id="currently" class="wrap">
-    <h2>Currently</h2>
-    <article class="card">
-      <span class="badge">PhD project</span>
-      <h3><a href="https://github.com/diegotxegp/hamelin">Hamelin</a></h3>
-      <p>A no-code, protocol-aware AutoML desktop application for clinical research. Clinical researchers without coding skills can build, evaluate and document predictive models that respect clinical protocol structures which generic AutoML tools ignore. It is the core of my doctoral thesis, within the funded project <em>Human-guided automated machine learning for clinical studies</em> (University of Cantabria, 2024–2028).</p>
-      <p class="tags"><span>AutoML</span><span>Human-Centered AI</span><span>Clinical ML</span><span>No-code</span></p>
-      <p class="more"><a href="https://github.com/diegotxegp/report-hamelin">Report</a> · <a href="https://github.com/diegotxegp/presentation-report-hamelin">Slides</a></p>
-    </article>
-    <article class="card">
-      <span class="badge">Tool</span>
-      <h3><a href="https://github.com/diegotxegp/insuml">InsuML</a></h3>
-      <p>A no-code AutoML application for non-experts in AI, grounded in Human-Centered AI and Human-Guided ML principles. Build predictive models through an accessible interface, no coding needed.</p>
-      <p class="more"><a href="https://github.com/diegotxegp/paper-insuml-hcai-evaluation">HCAI evaluation paper</a> · <a href="https://github.com/diegotxegp/poster-insuml">Poster</a></p>
-    </article>
-    <p>I also teach mathematics for the Primary Education degree at the University of Cantabria.</p>
+  <section id="demo" class="wrap">
+    <h2>Try it: a tiny AutoML</h2>
+    <p class="intro">Choose a dataset, customise the experiment and train a model <strong>right here in your browser</strong>. The data are real public datasets and the models are really trained, but this is a small teaching demo written for this page, not Hamelin itself.</p>
+
+    <form id="demo-form" class="demo" autocomplete="off">
+      <div class="grid">
+        <div class="field">
+          <label for="d-dataset">1 · Dataset</label>
+          <select id="d-dataset"><option>Loading…</option></select>
+        </div>
+        <div class="field">
+          <label for="d-target">2 · What to predict</label>
+          <select id="d-target"></select>
+        </div>
+      </div>
+      <p class="hint" id="d-info" aria-live="polite"></p>
+      <p class="hint" id="d-task"></p>
+
+      <fieldset class="field">
+        <legend>3 · Input columns</legend>
+        <div id="d-feats" class="checks"></div>
+      </fieldset>
+
+      <div class="grid">
+        <div class="field">
+          <label for="d-model">4 · Model</label>
+          <select id="d-model"></select>
+        </div>
+        <div class="field">
+          <label for="d-test">Share held out for testing</label>
+          <select id="d-test"><option value="20">20%</option><option value="30" selected>30%</option><option value="40">40%</option></select>
+        </div>
+        <div class="field">
+          <label for="d-seed">Random seed</label>
+          <input id="d-seed" type="number" inputmode="numeric" min="1" step="1" value="42">
+        </div>
+        <div class="field">
+          <span class="lbl">Preprocessing</span>
+          <label class="check box"><input type="checkbox" id="d-scale" checked> Standardise inputs</label>
+        </div>
+      </div>
+
+      <button class="btn primary run" id="d-run" type="submit" disabled>Run experiment</button>
+    </form>
+
+    <div id="d-out" class="results" aria-live="polite"></div>
+
+    <div id="d-hist" class="hist" hidden>
+      <h3>Your experiments</h3>
+      <p class="hint">Change something and run again to see what moves. Latest first.</p>
+      <div class="d-scroll"><table class="d-tab"><thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Setup</th><th scope="col">Test score</th></tr></thead><tbody id="d-hist-body"></tbody></table></div>
+    </div>
+    <noscript><p class="hint">The demo needs JavaScript.</p></noscript>
   </section>
 
-  <section id="papers" class="wrap">
-    <h2>Talks &amp; papers</h2>
-    <p class="hint">Full list on <a href="https://scholar.google.com/citations?user=WtrgTHkAAAAJ&hl=en">Google Scholar</a> and <a href="https://orcid.org/0000-0002-7461-2961">ORCID</a>.</p>
-    <ul class="list">
-      <li><a href="https://github.com/diegotxegp/presentation-interaccion2026">Human-Centered AI Criteria for Heuristic Inspection of Guided ML Tools</a> <span>Interacción 2026 · with C. Palazuelos Calderón and R. Duque Medina</span></li>
-      <li><a href="https://github.com/diegotxegp/paper-icbet2026">Towards a Human-Guided AutoML Application for Democratizing Predictive Modeling in Clinical Research</a> <span>ICBET 2026, Bali · with C. Palazuelos Calderón, R. Duque Medina and L. Lavín Alconero · <a href="https://github.com/diegotxegp/presentation-icbet2026">slides</a></span></li>
-      <li>Integrating Large Language Models into Automated Machine Learning: A Human-Centric Approach <span>IC3K 2025, 17th International Joint Conference on Knowledge Discovery, Knowledge Engineering and Knowledge Management</span></li>
-      <li>Application-Level Evaluation of IEEE 802.1AS Synchronized Time and Linux for Distributed Real-Time Systems <span>ACM Transactions on Embedded Computing Systems, 2024</span></li>
-      <li>Beta-Hebbian Learning to Enhance Unsupervised Exploratory Visualizations of Android Malware Families <span>Logic Journal of the IGPL, 2024</span></li>
-      <li>First steps towards an IEEE 802.1AS clock for EDF scheduling in distributed real-time systems <span>Ada User Journal 42(2), 2022 · also presented at AEiC 2021 (25th Ada-Europe International Conference on Reliable Software Technologies), Santander</span></li>
-      <li>Contrastando teoría y práctica en sistemas distribuidos de tiempo real con planificación EDF <span>CEDI 2021, Málaga</span></li>
-    </ul>
-    <p class="hint">Teaching and outreach: <a href="https://github.com/diegotxegp/presentacion-datos-clinicos-y-modelizacion-descriptiva">Clinical data and descriptive modelling</a> (summer course on AI in clinical studies, University of Cantabria).</p>
-  </section>
-
-  <section id="background" class="wrap">
-    <h2>Background</h2>
-    <ol class="timeline">
-      <li><b>2014</b><div>Intern at <strong>IFCA-CSIC</strong>: an Android app for image recognition in the context of ESA's Copernicus programme.</div></li>
-      <li><b>Industry</b><div>Cybersecurity companies, including <strong>Panda Security</strong>, analysing malware in corporate environments.</div></li>
-      <li><b>2017 – 2018</b><div><strong>University of A Coruña</strong>: sentiment analysis and question answering in Arabic and Chinese with neural networks, in the group of Carlos Gómez Rodríguez (ERC Starting Grant).</div></li>
-      <li><b>2019 – 2021</b><div><strong>University of Cantabria</strong>: predictable real-time systems for Industry 4.0, with precision clock synchronisation over industrial Ethernet (IEEE 802.1AS) and EDF scheduling.</div></li>
-      <li><b>2023</b><div><strong>University of Burgos</strong> (machine learning for metalworking fluids, and teaching <em>Data Structures</em>) and <strong>IH Cantabria</strong> (flood models and a digital twin of the European coast).</div></li>
-      <li><b>2024 – today</b><div>Researcher in AI at the <strong>University of Cantabria</strong>, working on human-guided machine learning.</div></li>
-    </ol>
-  </section>
-
-  <section id="projects" class="wrap">
-    <h2>Funded research projects</h2>
-    <ul class="list">
-      <li>Human-guided automated machine learning for clinical studies <span>University of Cantabria, 2024–2028 · PI: Rafael Duque Medina</span></li>
-      <li>A model-driven framework for the development of digital twins <span>University of Cantabria · SUBVTC-2023-0013</span></li>
-      <li>Scientific and technical bases of a digital twin for coastal climate risk analysis and adaptation (CoCliCo, Coastal Climate Core) <span>University of Cantabria · TED2021-131885B-I00, MCIN/AEI and NextGenerationEU/PRTR · PIs: Íñigo Losada Rodriguez and Alexandra Toimil Silva</span></li>
-      <li>SmarTaladrine: smart eco-management of metalworking fluids in machining operations <span>University of Burgos · CPP2021-008816, AEI and NextGenerationEU/PRTR · PI: Álvaro Herrero Cosío</span></li>
-      <li>Dependable and predictable computer systems for Industry 4.0 <span>University of Cantabria · TIN2017-86520-C3-3-R, MCIN/AEI and FEDER · PIs: Michael González Harbour and José Javier Gutiérrez García</span></li>
-      <li>Language technologies for opinion analysis in social networks: from text to microtext <span>University of A Coruña · FFI2014-51978-C2-2-R, Ministry of Economy and Competitiveness · PI: Carlos Gómez Rodríguez</span></li>
-    </ul>
-  </section>
-
-  <section id="education" class="wrap">
-    <h2>Education</h2>
-    <ul class="list">
-      <li>Master's in Secondary Education Teacher Training <span>University of Cantabria, 2025</span></li>
-      <li>Master's in Computer Engineering <span>University of Cantabria, 2015</span></li>
-      <li>Computer Engineering (5-year degree) <span>University of Cantabria, 2014. Final project: mathematical security evaluation of WEP and replication of cryptanalytic attacks (FMS and Chop-Chop) in Python.</span></li>
-    </ul>
-    <p class="hint">English B2. I also completed Stanford's Machine Learning course on Coursera, and I have helped organise WMC 2016, AEiC 2021 and RECSI 2022.</p>
-  </section>
-
-  <section id="interests" class="wrap">
-    <h2>Interests</h2>
-    <ul class="chips">
-      <li>AutoML</li><li>Human-Centered AI</li><li>Human-Computer Interaction</li>
-      <li>Data Science</li><li>Clinical ML</li><li>Real-time Systems</li>
-      <li>Cryptography</li><li>Cybersecurity</li>
-    </ul>
-  </section>
-
-  <section id="other" class="wrap">
-    <h2>Other projects</h2>
-    <p class="hint">Small tools from earlier work.</p>
-    <ul class="list">
-      <li><a href="https://github.com/diegotxegp/NC2TIF">NC2TIF</a> <span>NetCDF to TIFF converter</span></li>
-      <li><a href="https://github.com/diegotxegp/ASC2TIF">ASC2TIF</a> <span>Batch ASCII to TIFF conversion across folders</span></li>
-      <li><a href="https://github.com/diegotxegp/ColorMap_TIF">ColorMap_TIF</a> <span>Colours TIFF maps in shades of blue by depth</span></li>
-      <li><a href="https://github.com/diegotxegp/conllu-to-conll">conllu-to-conll</a> <span>Universal Dependencies format converter</span></li>
-    </ul>
-  </section>
-
-  <section id="contact" class="wrap contact">
+  <section id="contact" class="wrap">
     <h2>Contact</h2>
-    <p>Email me or find me on LinkedIn.</p>
+    <p>The best places to find my experience, projects and publications:</p>
     <p class="links">
-      <button class="btn" id="mail" type="button" data-e="bW9jLmtvb2x0dW9AcGdleHRvZ2VpZA==" onclick="var a=document.createElement('a');a.className='btn';a.href='mailto:'+(a.textContent=atob(this.dataset.e).split('').reverse().join(''));this.replaceWith(a);">✉️ Show email</button>
-      <a class="btn" href="https://www.linkedin.com/in/diego-garcia-p/">LinkedIn</a>
-      <a class="btn" href="https://diegotxegp.wordpress.com">Blog</a>
+      <a class="btn primary" href="https://www.linkedin.com/in/diego-garcia-p/">LinkedIn</a>
+      <a class="btn" href="https://scholar.google.com/citations?user=WtrgTHkAAAAJ&amp;hl=en">Google Scholar</a>
+      <button class="btn" id="mail" type="button" data-e="bW9jLmtvb2x0dW9AcGdleHRvZ2VpZA==">Show email</button>
     </p>
-    <noscript><p class="muted">Enable JavaScript to see my email address, or write to me on LinkedIn.</p></noscript>
+    <noscript><p class="hint">Enable JavaScript to see my email address, or write to me on LinkedIn.</p></noscript>
   </section>
 </main>
 
-<footer class="wrap"><span class="mark small" aria-hidden="true"><span class="logo"></span></span>
-  <p>© Diego García-Prieto · University of Cantabria</p></footer>
-</div>
-<script>
-(function () {
-  var links = document.querySelectorAll('.side li a');
-  var map = {};
-  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
-  var secs = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
-  function mark() {
-    var cur = secs[0], y = window.scrollY + window.innerHeight * 0.3;
-    secs.forEach(function (el) { if (el.offsetTop <= y) cur = el; });
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = secs[secs.length - 1];
-    links.forEach(function (a) { a.classList.remove('on'); });
-    if (cur) map[cur.id].classList.add('on');
-  }
-  window.addEventListener('scroll', mark, { passive: true });
-  window.addEventListener('resize', mark);
-  mark();
+<footer class="wrap"><p>© Diego García-Prieto · University of Cantabria</p></footer>
 
-  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var secs2 = document.querySelectorAll('main section:not(.hero)');
-  if ('IntersectionObserver' in window && !rm) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    secs2.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
-  }
-  if (!rm) {
-    window.addEventListener('pointermove', function (e) {
-      document.documentElement.style.setProperty('--mx', e.clientX + 'px');
-      document.documentElement.style.setProperty('--my', e.clientY + 'px');
-    }, { passive: true });
-  }
-})();
-</script>
-<script>
-(function () {
-  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var css = function (n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); };
-
-  /* Scroll progress bar */
-  var bar = document.querySelector('.progress');
-  function prog() {
-    var h = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = 'scaleX(' + (h > 0 ? scrollY / h : 0) + ')';
-  }
-  addEventListener('scroll', prog, { passive: true }); prog();
-
-  /* Typewriter in the hero */
-  var rot = document.querySelector('.rot');
-  if (rot && !rm) {
-    var words = rot.dataset.words.split('|'), wi = 0, ci = words[0].length, del = true;
-    (function tick() {
-      var w = words[wi], delay = 90;
-      if (del) { ci--; if (ci <= 0) { del = false; wi = (wi + 1) % words.length; } delay = 50; }
-      else { ci++; if (ci >= words[wi].length) { del = true; delay = 1700; } }
-      rot.textContent = words[wi].slice(0, Math.max(ci, 0));
-      setTimeout(tick, delay);
-    })();
-  }
-
-  /* Card tilt */
-  if (!rm) document.querySelectorAll('.card').forEach(function (c) {
-    c.addEventListener('pointermove', function (e) {
-      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      c.style.transform = 'perspective(800px) rotateX(' + (-y * 5) + 'deg) rotateY(' + (x * 6) + 'deg) translateY(-4px)';
-    });
-    c.addEventListener('pointerleave', function () { c.style.transform = ''; });
-  });
-
-  /* Particle network */
-  var cv = document.getElementById('net');
-  if (!cv || rm) return;
-  var ctx = cv.getContext('2d'), W, H, pts = [], mouse = { x: -999, y: -999 }, run = true;
-  function size() {
-    var d = devicePixelRatio || 1; W = innerWidth; H = innerHeight;
-    cv.width = W * d; cv.height = H * d; cv.style.width = W + 'px'; cv.style.height = H + 'px';
-    ctx.setTransform(d, 0, 0, d, 0, 0);
-    var n = Math.min(70, Math.round(W * H / 20000));
-    pts = []; for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35 });
-  }
-  addEventListener('resize', size); size();
-  addEventListener('pointermove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
-  document.addEventListener('visibilitychange', function () { run = !document.hidden; if (run) frame(); });
-  function frame() {
-    if (!run) return;
-    ctx.clearRect(0, 0, W, H);
-    var c1 = css('--a1'), c2 = css('--a2');
-    for (var i = 0; i < pts.length; i++) {
-      var p = pts[i];
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W) p.vx *= -1;
-      if (p.y < 0 || p.y > H) p.vy *= -1;
-      var dx = p.x - mouse.x, dy = p.y - mouse.y, dm = Math.sqrt(dx * dx + dy * dy);
-      if (dm < 140) { p.x += dx / dm * .6; p.y += dy / dm * .6; }
-      for (var j = i + 1; j < pts.length; j++) {
-        var q = pts[j], ax = p.x - q.x, ay = p.y - q.y, d = Math.sqrt(ax * ax + ay * ay);
-        if (d < 130) {
-          ctx.globalAlpha = (1 - d / 130) * .22;
-          ctx.strokeStyle = (dm < 200 || Math.hypot(q.x - mouse.x, q.y - mouse.y) < 200) ? c2 : c1;
-          ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
-        }
-      }
-      ctx.globalAlpha = .5; ctx.fillStyle = c1; ctx.beginPath(); ctx.arc(p.x, p.y, 2, 0, 6.283); ctx.fill();
-    }
-    requestAnimationFrame(frame);
-  }
-  frame();
-})();
-</script>
+<script src="js/site.js" defer></script>
+<script src="js/ml.js" defer></script>
+<script src="js/demo.js" defer></script>
 </body>
 </html>
