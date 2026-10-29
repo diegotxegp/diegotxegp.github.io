@@ -2,7 +2,7 @@
 (function () {
   var fmt = function (iso) {
     var d = new Date(iso + 'T12:00:00');
-    return isNaN(d) ? iso : d.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+    return isNaN(d) ? iso : d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
   };
   function get(url, json) {
     return fetch(url).then(function (r) {
@@ -22,7 +22,7 @@
     get('posts/posts.json', true).then(function (posts) {
       list.textContent = '';
       posts.sort(function (a, b) { return a.date < b.date ? 1 : -1; });
-      if (!posts.length) { list.appendChild(el('li', 'd-state', 'Todavía no hay entradas.')); return; }
+      if (!posts.length) { list.appendChild(el('li', 'd-state', 'No posts yet.')); return; }
       posts.forEach(function (p) {
         var li = el('li'), a = el('a', 'post-card');
         a.href = 'post.html?p=' + encodeURIComponent(p.slug);
@@ -34,7 +34,7 @@
       });
     }).catch(function () {
       list.textContent = '';
-      list.appendChild(el('li', 'd-state err', 'No se pudieron cargar las entradas. Recarga la página.'));
+      list.appendChild(el('li', 'd-state err', 'Could not load the posts. Reload the page.'));
     });
   }
 
@@ -42,7 +42,7 @@
   if (body) {
     var slug = new URLSearchParams(location.search).get('p') || '';
     var title = document.getElementById('p-title'), date = document.getElementById('p-date');
-    var fail = function () { title.textContent = 'Entrada no encontrada'; body.appendChild(el('p', 'hint', 'Esa entrada no existe. Vuelve al blog para ver las disponibles.')); };
+    var fail = function () { title.textContent = 'Post not found'; body.appendChild(el('p', 'hint', 'That post does not exist. Go back to the blog to see the available ones.')); };
     if (!/^[a-z0-9-]+$/.test(slug)) fail();
     else Promise.all([get('posts/posts.json', true), get('posts/' + slug + '.html')]).then(function (r) {
       var meta = r[0].filter(function (p) { return p.slug === slug; })[0];

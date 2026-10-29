@@ -1,7 +1,7 @@
-# Cómo añadir una entrada
+# How to add a post (posts are written in English)
 
-1. Crea `posts/mi-entrada.html` con solo el texto de la entrada (párrafos `<p>`, `<h2>`, `<ul>`, `<a>`, `<img>`...). El nombre solo puede llevar minúsculas, números y guiones.
-2. Añade un bloque en `posts/posts.json` con el mismo `slug` (sin `.html`), la `date` (AAAA-MM-DD), el `title` y un `summary` breve.
-3. Haz commit y push: la entrada aparece sola en `blog.html` y se abre en `post.html?p=mi-entrada`.
+1. Create `posts/my-post.html` with only the text of the post (`<p>`, `<h2>`, `<ul>`, `<a>`, `<img>`...). The name may only contain lowercase letters, numbers and hyphens.
+2. Add an entry to `posts/posts.json` with the same `slug` (no `.html`), the `date` (YYYY-MM-DD), the `title` and, optionally, a short `summary`.
+3. Commit and push: the post appears in `blog.html` and opens at `post.html?p=my-post`.
 
-Para esconder una entrada, quítala de `posts.json`.
+To hide a post, remove it from `posts.json`.
