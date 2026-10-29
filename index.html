@@ -18,7 +18,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="style.css?v=10">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -56,7 +56,7 @@
 
   <section id="demo" class="wrap">
     <h2>Try it: a tiny AutoML</h2>
-    <p class="intro">Choose a dataset, customise the experiment and train a model <strong>right here in your browser</strong>. The data are real public datasets and the models are really trained, but this is a small teaching demo written for this page, not Hamelin itself.</p>
+    <p class="intro">Choose a dataset, customise the experiment and train a model <strong>right here in your browser</strong>. The datasets are real public ones from the benchmarks of my research, and the models are really trained, but this is a small teaching demo written for this page, not Hamelin itself.</p>
 
     <form id="demo-form" class="demo" autocomplete="off">
       <div class="grid">
@@ -70,6 +70,8 @@
         </div>
       </div>
       <p class="hint" id="d-info" aria-live="polite"></p>
+      <p class="chips" id="d-chips"></p>
+      <details class="peek"><summary>Preview the data</summary><div class="d-scroll"><table class="d-tab" id="d-preview"></table></div></details>
       <p class="hint" id="d-task"></p>
 
       <fieldset class="field">
@@ -93,6 +95,10 @@
         <div class="field">
           <span class="lbl">Preprocessing</span>
           <label class="check box"><input type="checkbox" id="d-scale" checked> Standardise inputs</label>
+        </div>
+        <div class="field">
+          <label for="d-missing">Missing values</label>
+          <select id="d-missing"><option value="fill">Fill with the median</option><option value="drop">Drop those rows</option></select>
         </div>
       </div>
 
