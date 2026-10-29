@@ -189,8 +189,3 @@ footer { padding: 16px 16px 48px; color: var(--muted); font-size: .9rem; text-al
   .top nav a.on { box-shadow: none; border-left-color: var(--a2); background: var(--card); color: var(--fg); font-weight: 600; }
   section[id] { scroll-margin-top: 24px; }
 }
-
-/* Bitcoin donation */
-.addr { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0; }
-.addr code { display: block; font: clamp(.74rem, 3.5vw, .95rem)/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; padding: 10px 12px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; color: var(--fg); }
-.addr a { text-decoration: none; min-width: 0; }

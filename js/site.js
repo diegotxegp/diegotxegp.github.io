@@ -41,19 +41,3 @@
   window.addEventListener('resize', mark);
   mark();
 })();
-
-/* Copy the Bitcoin address */
-(function () {
-  var b = document.getElementById('copy'), msg = document.getElementById('copy-msg'), code = document.getElementById('btc');
-  if (!b || !code) return;
-  function done(ok) { msg.textContent = ok ? 'Address copied.' : 'Could not copy: select the address and copy it manually.'; }
-  b.addEventListener('click', function () {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code.textContent).then(function () { done(true); }, function () { done(false); });
-    } else {
-      var r = document.createRange(); r.selectNodeContents(code);
-      var s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      try { done(document.execCommand('copy')); } catch (e) { done(false); }
-    }
-  });
-})();
