@@ -3,5 +3,17 @@
     "slug": "new-web",
     "date": "2026-10-29",
     "title": "New web!"
+  },
+  {
+    "slug": "first-phd-seminar",
+    "date": "2021-05-15",
+    "title": "First seminar of my PhD",
+    "summary": "My first seminar on the progress of my PhD, on TSN networks and clock synchronisation."
+  },
+  {
+    "slug": "science-week-2019",
+    "date": "2019-11-16",
+    "title": "Science Week 2019",
+    "summary": "A talk on clock synchronisation in real-time systems at the Faculty of Sciences."
   }
 ]
