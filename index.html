@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Diego García-Prieto · Human-guided machine learning</title>
-<meta name="description" content="Computer scientist and PhD candidate at the University of Cantabria, researching human-guided AutoML for clinical studies. Try a small AutoML experiment in your browser.">
+<meta name="description" content="Computer scientist and PhD candidate at the University of Cantabria, researching human-guided AutoML for clinical studies.">
 <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0f1d" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://diegotxegp.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Diego García-Prieto · Human-guided machine learning">
-<meta property="og:description" content="PhD candidate researching human-guided AutoML for clinical studies. Try a small AutoML experiment in your browser.">
+<meta property="og:description" content="Computer scientist and PhD candidate at the University of Cantabria, researching human-guided AutoML for clinical studies.">
 <meta property="og:url" content="https://diegotxegp.github.io/">
 <meta property="og:image" content="https://diegotxegp.github.io/favicon-512.png">
 <meta name="twitter:card" content="summary">
@@ -18,19 +18,20 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=3">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="style.css?v=16">
 </head>
-<body>
+<body data-page="home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <a class="brand" href="#top" aria-label="Diego García-Prieto, back to top"><span class="mark" aria-hidden="true"><span class="logo"></span></span><span class="brand-name">Diego García-Prieto</span></a>
+  <a class="brand" href="index.html#top" aria-label="Diego García-Prieto, home"><span class="mark" aria-hidden="true"><span class="logo"></span></span><span class="brand-name">Diego García-Prieto</span></a>
   <nav aria-label="Sections">
-    <a href="#top" class="home">Home</a>
-    <a href="#research">Research</a>
-    <a href="#demo">Demo</a>
+    <a href="index.html#top" class="home">Home</a>
+    <a href="index.html#research">Research</a>
+    <a href="demo.html">Demo</a>
+    <a href="archivistica.html">Archives</a>
+    <a href="blog.html">Blog</a>
   </nav>
 </header>
-
 <main id="main">
   <section id="top" class="hero wrap">
     <h1><span class="grad">Diego García-Prieto</span></h1>
@@ -54,73 +55,10 @@
     </div>
   </section>
 
-  <section id="demo" class="wrap">
-    <h2>Try it: a tiny AutoML</h2>
-    <p class="intro">Choose a dataset, customise the experiment and train a model <strong>right here in your browser</strong>. The datasets are real public ones from the benchmarks of my research, and the models are really trained, but this is a small teaching demo written for this page, not Hamelin itself.</p>
-
-    <form id="demo-form" class="demo" autocomplete="off">
-      <div class="grid">
-        <div class="field">
-          <label for="d-dataset">1 · Dataset</label>
-          <select id="d-dataset"><option>Loading…</option></select>
-        </div>
-        <div class="field">
-          <label for="d-target">2 · What to predict</label>
-          <select id="d-target"></select>
-        </div>
-      </div>
-      <p class="hint" id="d-info" aria-live="polite"></p>
-      <p class="chips" id="d-chips"></p>
-      <details class="peek"><summary>Preview the data</summary><div class="d-scroll"><table class="d-tab" id="d-preview"></table></div></details>
-      <p class="hint" id="d-task"></p>
-
-      <fieldset class="field">
-        <legend>3 · Input columns</legend>
-        <div id="d-feats" class="checks"></div>
-      </fieldset>
-
-      <div class="grid">
-        <div class="field">
-          <label for="d-model">4 · Model</label>
-          <select id="d-model"></select>
-        </div>
-        <div class="field">
-          <label for="d-test">Share held out for testing</label>
-          <select id="d-test"><option value="20">20%</option><option value="30" selected>30%</option><option value="40">40%</option></select>
-        </div>
-        <div class="field">
-          <label for="d-seed">Random seed</label>
-          <input id="d-seed" type="number" inputmode="numeric" min="1" step="1" value="42">
-        </div>
-        <div class="field">
-          <span class="lbl">Preprocessing</span>
-          <label class="check box"><input type="checkbox" id="d-scale" checked> Standardise inputs</label>
-        </div>
-        <div class="field">
-          <label for="d-missing">Missing values</label>
-          <select id="d-missing"><option value="fill">Fill with the median</option><option value="drop">Drop those rows</option></select>
-        </div>
-      </div>
-
-      <button class="btn primary run" id="d-run" type="submit" disabled>Run experiment</button>
-    </form>
-
-    <div id="d-out" class="results" aria-live="polite"></div>
-
-    <div id="d-hist" class="hist" hidden>
-      <h3>Your experiments</h3>
-      <p class="hint">Change something and run again to see what moves. Latest first.</p>
-      <div class="d-scroll"><table class="d-tab"><thead><tr><th scope="col">#</th><th scope="col">Task</th><th scope="col">Setup</th><th scope="col">Test score</th></tr></thead><tbody id="d-hist-body"></tbody></table></div>
-    </div>
-    <noscript><p class="hint">The demo needs JavaScript.</p></noscript>
-  </section>
-
 </main>
 
 <footer class="wrap"><p>© Diego García-Prieto · University of Cantabria</p></footer>
 
 <script src="js/site.js" defer></script>
-<script src="js/ml.js" defer></script>
-<script src="js/demo.js" defer></script>
 </body>
 </html>

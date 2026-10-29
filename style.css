@@ -230,3 +230,24 @@ footer { padding: 16px 16px 48px; color: var(--muted); font-size: .9rem; text-al
   .d-cm th { padding: 6px 5px; font-size: .78rem; }
   .d-cm button { min-width: 3.2rem; }
 }
+
+/* Inner pages */
+.page-head { padding-top: 40px; }
+@media (min-width: 760px) { .page-head { padding-top: 72px; } }
+.page-head h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+.steps { padding-left: 1.3rem; margin: 0 0 8px; }
+.steps li { margin-bottom: 10px; padding-left: 4px; }
+.steps li::marker { color: var(--a2); font-weight: 700; }
+.posts { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 12px; }
+.post-card {
+  display: grid; gap: 4px; padding: 14px 18px; color: var(--fg); text-decoration: none;
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px; transition: border-color .2s, box-shadow .2s;
+}
+.post-card:hover { border-color: var(--a1); box-shadow: 0 6px 18px var(--glow); }
+.post-title { font-family: Georgia, serif; font-size: 1.2rem; line-height: 1.25; }
+.post-sum { color: var(--muted); font-size: .95rem; }
+.meta { color: var(--muted); font-size: .85rem; margin: 0; }
+.post .meta { margin-bottom: 20px; }
+.post .back { margin: 0 0 12px; }
+.post #p-body img { max-width: 100%; height: auto; border-radius: 10px; }
+.post #p-body { max-width: 40rem; }

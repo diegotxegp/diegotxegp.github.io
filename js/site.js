@@ -26,11 +26,16 @@
   })();
 })();
 
-/* Highlight the index link of the section being read */
+/* Home page only: highlight the index link of the section being read (other pages mark theirs in the HTML) */
 (function () {
-  var links = document.querySelectorAll('.top nav a'), map = {};
-  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
-  var secs = Object.keys(map).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (document.body.dataset.page !== 'home') return;
+  var map = {}, links = document.querySelectorAll('.top nav a');
+  links.forEach(function (a) {
+    var h = a.getAttribute('href');
+    if (h === 'index.html#top') map.top = a;
+    else if (h === 'index.html#research') map.research = a;
+  });
+  var secs = ['top', 'research'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
   function mark() {
     var cur = secs[0], y = window.scrollY + window.innerHeight * 0.3;
     secs.forEach(function (el) { if (el.offsetTop <= y) cur = el; });
